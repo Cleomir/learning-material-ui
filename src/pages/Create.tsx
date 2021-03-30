@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 
 export const Create = () => {
   return (
@@ -11,6 +11,15 @@ export const Create = () => {
       >
         Create a new Note
       </Typography>
+
+      <Button
+        onClick={() => console.log("Submit clicked")}
+        type="submit"
+        color="secondary"
+        variant="contained"
+      >
+        Submit
+      </Button>
     </div>
   );
 };
