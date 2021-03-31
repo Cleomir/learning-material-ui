@@ -1,8 +1,9 @@
-import { Typography, Button } from "@material-ui/core";
+import { Typography, Button, Container } from "@material-ui/core";
+import { KeyboardArrowRight } from "@material-ui/icons";
 
 export const Create = () => {
   return (
-    <div>
+    <Container>
       <Typography
         variant="h6"
         component="h2"
@@ -17,9 +18,10 @@ export const Create = () => {
         type="submit"
         color="secondary"
         variant="contained"
+        endIcon={<KeyboardArrowRight />}
       >
         Submit
       </Button>
-    </div>
+    </Container>
   );
 };
