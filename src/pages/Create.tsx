@@ -1,7 +1,19 @@
-import { Typography, Button, Container } from "@material-ui/core";
+import { Typography, Button, Container, makeStyles } from "@material-ui/core";
 import { KeyboardArrowRight } from "@material-ui/icons";
 
+const useStyles = makeStyles({
+  btn: {
+    fontSize: 20,
+    backgroundColor: "violet",
+    "&:hover": {
+      backgroundColor: "blue",
+    },
+  },
+});
+
 export const Create = () => {
+  const classes = useStyles();
+
   return (
     <Container>
       <Typography
@@ -15,6 +27,7 @@ export const Create = () => {
 
       <Button
         onClick={() => console.log("Submit clicked")}
+        className={classes.btn}
         type="submit"
         color="secondary"
         variant="contained"
