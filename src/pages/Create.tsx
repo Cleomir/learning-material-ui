@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { KeyboardArrowRight } from "@material-ui/icons";
 import { FormEvent, useState } from "react";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles({
   field: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles({
 
 export const Create = () => {
   const classes = useStyles();
+  const history = useHistory();
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [category, setCategory] = useState("todos");
@@ -43,9 +45,11 @@ export const Create = () => {
     }
 
     if (title && details) {
-      console.log(
-        `Title: ${title}\nDetails: ${details}\nCategory: ${category}`
-      );
+      fetch("http://localhost:8080/notes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, details, category }),
+      }).then(() => history.push("/"));
     }
   };
 
