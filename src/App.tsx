@@ -4,6 +4,7 @@ import { purple } from "@material-ui/core/colors";
 
 import { Create } from "./pages/Create";
 import { Notes } from "./pages/Notes";
+import { Layout } from "./components/Layout";
 
 const theme = createMuiTheme({
   palette: {
@@ -25,10 +26,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Notes} />
-          <Route exact path="/create" component={Create} />
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={Notes} />
+            <Route exact path="/create" component={Create} />
+          </Switch>
+        </Layout>
       </BrowserRouter>
     </ThemeProvider>
   );
