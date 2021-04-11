@@ -11,24 +11,27 @@ import {
 } from "@material-ui/core";
 import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
 
-const drawerWidth = 240;
-const useStyles = makeStyles({
-  page: {
-    backgroundColor: "#f9f9f9",
-    width: "100%",
-  },
-  drawer: {
-    width: drawerWidth,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  root: {
-    display: "flex",
-  },
-  active: {
-    backgroundColor: "#f4f4f4",
-  },
+const useStyles = makeStyles((theme) => {
+  const drawerWidth = 240;
+  return {
+    page: {
+      backgroundColor: "#f9f9f9",
+      width: "100%",
+      padding: theme.spacing(3),
+    },
+    drawer: {
+      width: drawerWidth,
+    },
+    drawerPaper: {
+      width: drawerWidth,
+    },
+    root: {
+      display: "flex",
+    },
+    active: {
+      backgroundColor: "#f4f4f4",
+    },
+  };
 });
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
