@@ -8,8 +8,11 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  AppBar,
+  Toolbar,
 } from "@material-ui/core";
 import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
+import { format } from "date-fns";
 
 const useStyles = makeStyles((theme) => {
   const drawerWidth = 240;
@@ -30,6 +33,13 @@ const useStyles = makeStyles((theme) => {
     },
     active: {
       backgroundColor: "#f4f4f4",
+    },
+    appBar: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+    toolbar: theme.mixins.toolbar,
+    date: {
+      flexGrow: 1,
     },
   };
 });
@@ -53,6 +63,15 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className={classes.root}>
+      <AppBar className={classes.appBar}>
+        <Toolbar>
+          <Typography className={classes.date}>
+            Today is the {format(new Date(), "do MMMM Y")}
+          </Typography>
+          <Typography>Mario</Typography>
+        </Toolbar>
+      </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -78,7 +97,10 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           ))}
         </List>
       </Drawer>
-      <div className={classes.page}>{children}</div>
+      <div className={classes.page}>
+        <div className={classes.toolbar}></div>
+        {children}
+      </div>
     </div>
   );
 };
