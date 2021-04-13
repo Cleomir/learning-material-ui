@@ -10,6 +10,7 @@ import {
   ListItemText,
   AppBar,
   Toolbar,
+  Avatar,
 } from "@material-ui/core";
 import { AddCircleOutlined, SubjectOutlined } from "@material-ui/icons";
 import { format } from "date-fns";
@@ -41,6 +42,9 @@ const useStyles = makeStyles((theme) => {
     date: {
       flexGrow: 1,
     },
+    avatar: {
+      marginLeft: theme.spacing(2),
+    },
   };
 });
 
@@ -69,6 +73,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             Today is the {format(new Date(), "do MMMM Y")}
           </Typography>
           <Typography>Mario</Typography>
+          <Avatar src="/mario.png" className={classes.avatar} />
         </Toolbar>
       </AppBar>
 

@@ -5,15 +5,28 @@ import {
   IconButton,
   Typography,
   makeStyles,
+  Avatar,
 } from "@material-ui/core";
+import { green, yellow, pink, blue } from "@material-ui/core/colors";
 import { DeleteOutlined } from "@material-ui/icons";
 import { INote } from "../types/INote";
 
 const useStyles = makeStyles({
-  test: {
-    border: (note: INote) => {
-      if (note.category === "work") {
-        return "1px solid red";
+  avatar: {
+    backgroundColor: (note: INote) => {
+      switch (note.category) {
+        case "work": {
+          return yellow[700];
+        }
+        case "money": {
+          return green[500];
+        }
+        case "todos": {
+          return pink[700];
+        }
+        default: {
+          return blue[500];
+        }
       }
     },
   },
@@ -30,8 +43,13 @@ export const NoteCard = ({
 
   return (
     <div>
-      <Card elevation={3} className={classes.test}>
+      <Card elevation={3}>
         <CardHeader
+          avatar={
+            <Avatar className={classes.avatar}>
+              {note.category[0].toUpperCase()}
+            </Avatar>
+          }
           action={
             <IconButton onClick={() => handleDelete(note.id)}>
               <DeleteOutlined />
