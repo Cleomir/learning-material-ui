@@ -23,6 +23,12 @@
       "details": "New details",
       "category": "todos",
       "id": 4
+    },
+    {
+      "title": "Pay bills",
+      "details": "Bla bla",
+      "category": "money",
+      "id": 5
     }
   ]
 }
